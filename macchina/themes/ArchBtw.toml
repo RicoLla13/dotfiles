@@ -12,7 +12,7 @@ type = "Full"
 visible = false
 
 [bar]
-glyph           = "ߋ"
+glyph           = ""
 symbol_open     = '['
 symbol_close    = ']'
 hide_delimiters = true
