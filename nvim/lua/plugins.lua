@@ -19,6 +19,7 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     'williamboman/mason-lspconfig.nvim',
     'kyazdani42/nvim-web-devicons',
+    'lommix/godot.nvim',
     {
         'numToStr/Comment.nvim',
 		config = function()

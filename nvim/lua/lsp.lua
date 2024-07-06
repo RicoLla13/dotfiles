@@ -15,6 +15,7 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'clangd',
         'marksman',
+        'gdtoolkit',
     },
 })
 
