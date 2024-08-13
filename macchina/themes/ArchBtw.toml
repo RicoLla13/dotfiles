@@ -34,7 +34,7 @@ separator_color = false
 
 [custom_ascii]
 # color           = "Cyan"
-path            = "~/.config/macchina/themes/Rukia_Eye" 
+path            = "~/.config/macchina/themes/arch_linux_rainbow" 
 
 [keys]
 host            = ""
