@@ -18,8 +18,25 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
     'williamboman/mason-lspconfig.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'jay-babu/mason-null-ls.nvim',
     'kyazdani42/nvim-web-devicons',
-    'lommix/godot.nvim',
+    'tpope/vim-surround',
+    'preservim/tagbar',
+    'phpactor/phpactor',
+    'universal-ctags/ctags',
+    'airblade/vim-gitgutter',
+    {
+        'akinsho/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = function()
+            require("flutter-tools").setup {}
+        end,
+    },
     {
         'numToStr/Comment.nvim',
 		config = function()
@@ -37,9 +54,12 @@ require("lazy").setup({
     {
         'zbirenbaum/copilot.lua',
         cmd = "Copilot",
-        event = "InsertEnter",
+        -- event = "InsertEnter",
 		config = function()
-			require("config.copilot")
+			require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
 		end,
     },
     {

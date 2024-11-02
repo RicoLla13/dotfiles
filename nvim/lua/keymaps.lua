@@ -36,6 +36,14 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fg', ':Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', ':Telescope help_tags<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>gs', '<cmd>lua require("telescope.builtin").git_status()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>km', '<cmd>lua require("telescope.builtin").keymaps()<CR>', opts)
 
 -- Nvimtree
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
+
+-- Tagbar
+vim.api.nvim_set_keymap('n', '<leader>t', ':TagbarToggle<CR>', opts)
+
+-- Format code
+vim.api.nvim_set_keymap("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
