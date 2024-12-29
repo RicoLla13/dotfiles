@@ -47,3 +47,21 @@ vim.api.nvim_set_keymap('n', '<leader>t', ':TagbarToggle<CR>', opts)
 
 -- Format code
 vim.api.nvim_set_keymap("n", "<leader>fo", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+
+-- Create an autocommand group for Go to Definition
+vim.api.nvim_create_augroup('GoToDefinition', { clear = true })
+
+-- PHP: Map 'gd' to PhpactorGoToDefinition for PHP files
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'GoToDefinition',
+  pattern = 'php',  -- Apply to PHP files
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, 'n', 'gd', ':PhpactorGotoDefinition<CR>', { noremap = true, silent = true })
+  end
+})
+
+-- Cmake
+vim.api.nvim_set_keymap('n', '<leader>cmb', ':CMakeBuild<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>cmg', ':CMakeGenerate<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>cmr', ':CMakeRun<CR>', { noremap = true })
+

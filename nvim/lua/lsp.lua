@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"marksman",
 		"phpactor",
-		"intelephense",
+		-- "intelephense",
 	},
 })
 
@@ -53,32 +53,6 @@ require("mason-lspconfig").setup_handlers({
 	end,
 })
 
--- Setup treesitter
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"c",
-		"cpp",
-		"rust",
-		"python",
-		"markdown",
-		"bash",
-		"json",
-		"lua",
-		"yaml",
-		"html",
-		"css",
-		"javascript",
-		"typescript",
-		"tsx",
-		"dockerfile",
-		"toml",
-	},
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	},
-})
-
 -- Setup mason-null-ls
 require("mason-null-ls").setup({
 	ensure_installed = {
@@ -89,7 +63,7 @@ require("mason-null-ls").setup({
 		"phpcs",
 		"phpstan",
 		"psalm",
-        "clang-format",
+		"clang-format",
 	},
 	automatic_installation = true,
 })
@@ -111,29 +85,29 @@ null_ls.setup({
 		-- Add Black for Python formatting
 		null_ls.builtins.formatting.black,
 
-        -- Add clang-format for C++ formatting, with 4 spaces indentation
-        null_ls.builtins.formatting.clang_format.with({
-            extra_args = {
-                "--style",
-                [[{
+		-- Add clang-format for C++ formatting, with 4 spaces indentation
+		null_ls.builtins.formatting.clang_format.with({
+			extra_args = {
+				"--style",
+				[[{
                     BasedOnStyle: Google,
                     IndentWidth: 4,
                     AllowShortBlocksOnASingleLine: Empty,
-                    AllowShortCaseLabelsOnASingleLine: true,
+                    AllowShortCaseLabelsOnASingleLine: false,
                     AllowShortIfStatementsOnASingleLine: false,
                     AllowShortLoopsOnASingleLine: false,
                     DerivePointerAlignment: false,
-                    PointerAlignment: Left
-                }]]
-            },
-        }),
+                    PointerAlignment: Left,
+                }]],
+			},
+		}),
 
 		-- PHP formatters and diagnostics
-		null_ls.builtins.diagnostics.phpcs.with({
-			extra_args = { "--standard=PSR12" },
-		}),
-		null_ls.builtins.diagnostics.phpstan,
-		null_ls.builtins.diagnostics.psalm,
+		-- null_ls.builtins.diagnostics.phpcs.with({
+		-- 	extra_args = { "--standard=PSR12" },
+		-- }),
+		-- null_ls.builtins.diagnostics.phpstan,
+		-- null_ls.builtins.diagnostics.psalm,
 	},
 })
 
@@ -175,3 +149,8 @@ cmp.setup.cmdline(":", {
 
 -- LuaSnip setup for snippet support
 require("luasnip.loaders.from_vscode").lazy_load() -- Load VSCode-style snippets
+
+-- local package_names = require("mason-registry").get_installed_package_names()
+-- local file = io.open("mason_packages.lua", "w")
+-- file:write("return " .. vim.inspect(package_names))
+-- file:close()
