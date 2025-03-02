@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=11.23.0
+Type=Application
+Icon=/home/liviu/dev/resources/icons/floorp.png
+Terminal=false
+Exec=/home/liviu/Apps/floorp/floorp-bin %u
+Name=Floorp
+Comment=Browser Floorp
